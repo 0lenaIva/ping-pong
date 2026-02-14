@@ -38,10 +38,10 @@ def receive():
             break
 
 # --- ШРИФТИ ---
-font_win = font.Font(None, 72)
-font_main = font.Font(None, 36)
+font_win = font.SysFont('Georgia', 72)
+font_main = font.SysFont('Georgia', 36)
 # --- ЗОБРАЖЕННЯ ----
-
+back1 = transform.scale(image.load('img.png'), (WIDTH,HEIGHT))
 # --- ЗВУКИ ---
 
 # --- ГРА ---
@@ -104,6 +104,7 @@ while True:
                 pass
 
     else:
+        screen.blit(back1, (0,0))
         wating_text = font_main.render(f"Очікування гравців...", True, (255, 255, 255))
         screen.blit(wating_text, (WIDTH // 2 - 25, 20))
 
