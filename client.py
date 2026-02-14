@@ -41,9 +41,9 @@ def receive():
 font_win = font.SysFont('Georgia', 72)
 font_main = font.SysFont('Georgia', 36)
 # --- ЗОБРАЖЕННЯ ----
-back1 = transform.scale(image.load('img.png'), (WIDTH,HEIGHT))
+#back1 = transform.scale(image.load('img.png'), (WIDTH,HEIGHT))
 # --- ЗВУКИ ---
-
+s1 = mixer.Sound('music.mp3')
 # --- ГРА ---
 game_over = False
 winner = None
@@ -98,13 +98,13 @@ while True:
         if game_state['sound_event']:
             if game_state['sound_event'] == 'wall_hit':
                 # звук відбиття м'ячика від стін
-                pass
+                s1.play()
             if game_state['sound_event'] == 'platform_hit':
                 # звук відбиття м'ячика від платформи
                 pass
 
     else:
-        screen.blit(back1, (0,0))
+        #screen.blit(back1, (0,0))
         wating_text = font_main.render(f"Очікування гравців...", True, (255, 255, 255))
         screen.blit(wating_text, (WIDTH // 2 - 25, 20))
 
